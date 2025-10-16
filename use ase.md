@@ -1,3 +1,4 @@
+```mermaid
 use-case
     title Диаграмма прецедентов системы учета ячменя и солода на элеваторе
     
@@ -9,42 +10,40 @@ use-case
     actor "Кладовщик отходов" as Storekeeper
     actor "Администратор" as Admin
 
-    usecase "UC-1: Управление учетными записями" as UC1
-    usecase "UC-2: Ведение справочников" as UC2
-    usecase "UC-3: Регистрация поступления партии" as UC3
-    usecase "UC-4: Фиксация результатов взвешивания" as UC4
-    usecase "UC-5: Ввод результатов лабораторного анализа" as UC5
-    usecase "UC-6: Расчет норм естественной убыли" as UC6
-    usecase "UC-7: Формирование акта приемки" as UC7
-    usecase "UC-8: Оформление подработки партии" as UC8
-    usecase "UC-9: Учет образования отходов" as UC9
-    usecase "UC-10: Передача сырья в производство" as UC10
-    usecase "UC-11: Проведение инвентаризации" as UC11
-    usecase "UC-12: Формирование отчетности" as UC12
+    usecase "1. Управление учетными записями\nи справочниками" as UC1
+    usecase "2. Регистрация поступления партии" as UC2
+    usecase "3. Фиксация результатов взвешивания" as UC3
+    usecase "4. Ввод лабораторного анализа" as UC4
+    usecase "5. Расчет норм естественной убыли" as UC5
+    usecase "6. Оформление акта приемки" as UC6
+    usecase "7. Оформление подработки партии" as UC7
+    usecase "8. Учет движения отходов" as UC8
+    usecase "9. Передача сырья в производство" as UC9
+    usecase "10. Проведение инвентаризации" as UC10
+    usecase "11. Формирование отчетности" as UC11
 
-    Chief --> UC3
-    Chief --> UC7
-    Chief --> UC8
-    Chief --> UC11
-    Chief --> UC12
+    ' Связи актеров с прецедентами
+    Admin --> UC1
     
-    Master --> UC3
+    Chief --> UC2
+    Chief --> UC6
+    Chief --> UC7
+    Chief --> UC10
+    Chief --> UC11
+    
+    Master --> UC2
+    Master --> UC6
     Master --> UC7
-    Master --> UC8
+    Master --> UC9
     Master --> UC10
     
-    Weigher --> UC4
-    
-    Lab --> UC5
-    
-    Accountant --> UC12
-    
-    Storekeeper --> UC9
-    
-    Admin --> UC1
-    Admin --> UC2
+    Weigher --> UC3
+    Lab --> UC4
+    Accountant --> UC11
+    Storekeeper --> UC8
 
-    UC3 ..> UC4 : include
-    UC3 ..> UC5 : include
-    UC7 ..> UC6 : include
-    UC8 ..> UC9 : include
+    ' Включения
+    UC2 ..> UC3 : include
+    UC2 ..> UC4 : include
+    UC6 ..> UC5 : include
+```
