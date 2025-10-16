@@ -1,4 +1,4 @@
-```mermaid
+
 use-case
     title Диаграмма прецедентов системы учета ячменя и солода на элеваторе
     
@@ -45,5 +45,4 @@ use-case
     ' Включения
     UC2 ..> UC3 : include
     UC2 ..> UC4 : include
-    UC6 ..> UC5 : include
-```
+    UC6 ..> UC5 : includ
